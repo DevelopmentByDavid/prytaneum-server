@@ -2,10 +2,10 @@
 import debug from 'debug';
 import core from 'express-serve-static-core';
 import type { Roles } from 'prytaneum-typings';
-
-import env from 'config/env';
 import connectCookieParser from 'cookie-parser';
-import { init as _init, requireLogin as _requireLogin } from 'middlewares';
+
+import env from '@app/config/env';
+import { init as _init, requireLogin as _requireLogin } from '@app/middlewares';
 import { ioMiddleware } from './socket-io';
 
 const info = debug('prytaneum:ws-middlewares');

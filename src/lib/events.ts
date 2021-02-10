@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events';
-import { CollectionMap } from 'db';
+import { CollectionMap } from '@app/db';
 
 class PrytaneumEE extends EventEmitter {
     emit<T extends keyof EventMap>(event: T, payload: EventMap[T]) {

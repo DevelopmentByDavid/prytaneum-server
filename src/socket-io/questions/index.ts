@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/indent */
 import makeDebug from 'debug';
 
-import events from 'lib/events';
+import events from '@app/lib/events';
 import { Socket } from 'socket.io';
 
 import io from '../socket-io';

@@ -17,15 +17,15 @@ import {
     configure,
     startTownhall,
     endTownhall,
-} from 'modules/townhall';
-import { townhallValidationObject } from 'modules/townhall/validators';
+} from '@app/modules/townhall';
+import { townhallValidationObject } from '@app/modules/townhall/validators';
 import {
     makeJoiMiddleware,
     makeEndpoint,
     requireLogin,
     RequireLoginLocals,
-} from 'middlewares';
-import { makeObjectIdValidationObject } from 'utils/validators';
+} from '@app/middlewares';
+import { makeObjectIdValidationObject } from '@app/utils/validators';
 
 import { TownhallParams } from './types';
 import questionRoutes from './questions';

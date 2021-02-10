@@ -2,7 +2,8 @@
 import { Server, Namespace, Socket } from 'socket.io';
 import { ObjectId } from 'mongodb';
 import type { Subscriptions as SocketIOEvents } from 'prytaneum-typings';
-import env from 'config/env';
+
+import env from '@app/config/env';
 
 type ServerEmits = SocketIOEvents<ObjectId>;
 declare class PrytaneumNamespace extends Namespace {

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/indent */
 import createHttpError from 'http-errors';
 
-import isModerator from 'utils/isModerator';
+import isModerator from '@app/utils/isModerator';
 import { RequireLoginLocals } from './requireLogin';
 
 type Params = { townhallId: string };

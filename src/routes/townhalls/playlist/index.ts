@@ -9,13 +9,13 @@ import {
     previousQuestion,
     removeQuestionFromList,
     updateQueue,
-} from 'modules/playlist';
+} from '@app/modules/playlist';
 import {
     makeEndpoint,
     requireLogin,
     RequireLoginLocals,
     requireModerator,
-} from 'middlewares';
+} from '@app/middlewares';
 
 import { TownhallParams } from '../types';
 

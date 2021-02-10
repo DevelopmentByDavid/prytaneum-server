@@ -12,17 +12,17 @@ import {
     deleteQuestion,
     likeQuestion,
     deleteLike,
-} from 'modules/questions';
-import { questionFormValidationObject } from 'modules/questions/validators';
-import { addQuestionToList, removeQuestionFromList } from 'modules/playlist'; // TODO: remove
-import { makeObjectIdValidationObject } from 'utils/validators';
-import isModerator from 'utils/isModerator';
+} from '@app/modules/questions';
+import { questionFormValidationObject } from '@app/modules/questions/validators';
+import { addQuestionToList, removeQuestionFromList } from '@app/modules/playlist'; // TODO: remove
+import { makeObjectIdValidationObject } from '@app/utils/validators';
+import isModerator from '@app/utils/isModerator';
 import {
     makeJoiMiddleware,
     makeEndpoint,
     requireLogin,
     RequireLoginLocals,
-} from 'middlewares';
+} from '@app/middlewares';
 import { TownhallParams } from '../types';
 
 const router = Router();

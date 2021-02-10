@@ -1,6 +1,6 @@
 import { ObjectID, ObjectId } from 'mongodb';
 
-import { useCollection } from 'db';
+import { useCollection } from '@app/db';
 
 /**
  * will check if the given townhall

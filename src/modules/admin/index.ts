@@ -3,8 +3,8 @@ import { Cursor, ObjectID, ObjectId } from 'mongodb';
 import type { User, Roles } from 'prytaneum-typings';
 import createHttpError from 'http-errors';
 
-import { useCollection } from 'db';
-import jwt from 'lib/jwt';
+import { useCollection } from '@app/db';
+import jwt from '@app/lib/jwt';
 
 type FilteredUser = Pick<
     User<ObjectId>,

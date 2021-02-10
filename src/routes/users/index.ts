@@ -3,9 +3,11 @@ import { Router } from 'express';
 import Joi from 'joi';
 import passport from 'passport';
 import debug from 'debug';
+import { ObjectId } from 'mongodb';
+import createHttpError from 'http-errors';
 
-import env from 'config/env';
-import jwt from 'lib/jwt';
+import env from '@app/config/env';
+import jwt from '@app/lib/jwt';
 import type {
     User,
     RegisterForm,
@@ -17,24 +19,22 @@ import {
     makeEndpoint,
     requireLogin,
     RequireLoginLocals,
-} from 'middlewares';
+} from '@app/middlewares';
 import {
     registerUser,
     filterSensitiveData,
     confirmUserEmail,
     sendPasswordResetEmail,
     updatePassword,
-} from 'modules/user';
+} from '@app/modules/user';
 import {
     registerValidationObject,
     emailValidationObject,
     passwordValidationObject,
-} from 'modules/user/validators';
-import { getUsers, getUser, generateInviteLink } from 'modules/admin';
-import { makeObjectIdValidationObject } from 'utils/validators';
-import { ObjectId } from 'mongodb';
-import { getRolesFromInvite, incrementInviteUse } from 'modules/invites';
-import createHttpError from 'http-errors';
+} from '@app/modules/user/validators';
+import { getUsers, getUser, generateInviteLink } from '@app/modules/admin';
+import { makeObjectIdValidationObject } from '@app/utils/validators';
+import { getRolesFromInvite, incrementInviteUse } from '@app/modules/invites';
 
 const router = Router();
 const info = debug('prytaneum:routes/users');

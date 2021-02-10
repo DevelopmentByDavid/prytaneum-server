@@ -1,8 +1,9 @@
-import { useCollection } from 'db';
 import createHttpError from 'http-errors';
-import events from 'lib/events';
 import { ObjectID, ObjectId } from 'mongodb';
 import type { User } from 'prytaneum-typings';
+
+import { useCollection } from '@app/db';
+import events from '@app/lib/events';
 
 export async function createChatMessage(message: string, townhallId: string, user: User<ObjectId>) {
     const { insertedCount, ops } = await useCollection('ChatMessages', (ChatMessages) =>

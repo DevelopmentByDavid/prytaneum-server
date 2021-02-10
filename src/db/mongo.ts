@@ -2,7 +2,7 @@ import { MongoClient, Db, Collection, ObjectId, ClientSession, TransactionOption
 import makeDebug from 'debug';
 import type { User, Townhall, Question, ChatMessage, InviteLink } from 'prytaneum-typings';
 
-import config from 'config/mongo';
+import config from '@app/config/mongo';
 
 const info = makeDebug('prytaneum:db');
 

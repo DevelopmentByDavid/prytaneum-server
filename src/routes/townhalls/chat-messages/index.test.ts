@@ -11,10 +11,10 @@ import {
     ChatMessageForm,
 } from 'prytaneum-typings';
 
-import * as DB from 'db/mongo';
-import jwt from 'lib/jwt';
-import config from 'config/app';
-import { errorHandler } from 'middlewares';
+import * as DB from '@app/db/mongo';
+import jwt from '@app/lib/jwt';
+import config from '@app/config/app';
+import { errorHandler } from '@app/middlewares';
 import routes from '../index';
 
 const app = express();

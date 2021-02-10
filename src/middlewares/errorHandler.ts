@@ -4,7 +4,7 @@ import { ErrorRequestHandler } from 'express';
 import createHttpError, { HttpError } from 'http-errors';
 import { JsonWebTokenError, TokenExpiredError } from 'jsonwebtoken';
 
-import env from 'config/env';
+import env from '@app/config/env';
 
 export default function errorHandler(): ErrorRequestHandler {
     return (err: Error | HttpError, req, res, next) => {

@@ -5,8 +5,8 @@ import {
     VerifyFunction as LocalVerifyCallback,
 } from 'passport-local';
 
-import { verifyPassword } from 'modules/user';
-import { useCollection } from 'db';
+import { verifyPassword } from '@app/modules/user';
+import { useCollection } from '@app/db';
 import createHttpError from 'http-errors';
 
 export const localOptions: IStrategyOptions = { usernameField: 'email' };

@@ -4,21 +4,21 @@ import Joi from 'joi';
 import type { ChatMessage, ChatMessageForm } from 'prytaneum-typings';
 import { ObjectId } from 'mongodb';
 
-import { makeObjectIdValidationObject } from 'utils/validators';
+import { makeObjectIdValidationObject } from '@app/utils/validators';
 import {
     makeJoiMiddleware,
     makeEndpoint,
     requireLogin,
     RequireLoginLocals,
     requireModerator,
-} from 'middlewares';
+} from '@app/middlewares';
 import {
     createChatMessage,
     deleteChatMessage,
     getChatMessages,
     moderateMessage,
     updateChatMessage,
-} from 'modules/chat';
+} from '@app/modules/chat';
 import { TownhallParams } from '../types';
 
 const router = Router();

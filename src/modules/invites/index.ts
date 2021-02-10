@@ -1,6 +1,7 @@
 import { ObjectID } from 'mongodb';
-import { useCollection } from 'db';
 import createHttpError from 'http-errors';
+
+import { useCollection } from '@app/db';
 
 export async function getRolesFromInvite(inviteId: string) {
     const result = await useCollection('InviteLinks', (InviteLinks) =>

@@ -3,8 +3,8 @@ import { ObjectID } from 'mongodb';
 import createHttpError from 'http-errors';
 import type { Question } from 'prytaneum-typings';
 
-import events from 'lib/events';
-import { useCollection } from 'db';
+import events from '@app/lib/events';
+import { useCollection } from '@app/db';
 
 // declare module 'lib/events' {
 //     interface EventMap {

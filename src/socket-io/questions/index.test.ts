@@ -7,7 +7,7 @@ import { ObjectId, ObjectID } from 'mongodb';
 import type { Subscriptions as ServerEmits } from 'prytaneum-typings';
 
 // import * as DB from 'db';
-import events from 'lib/events';
+import events from '@app/lib/events';
 import ioServer from '../socket-io';
 
 // must import to properly listen

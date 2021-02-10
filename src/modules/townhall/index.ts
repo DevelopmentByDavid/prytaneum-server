@@ -2,9 +2,9 @@ import { ObjectID, ObjectId } from 'mongodb';
 import createHttpError from 'http-errors';
 import type { TownhallForm, TownhallSettings, User } from 'prytaneum-typings';
 
-import events from 'lib/events';
-import { useCollection } from 'db';
-import { makeMeta } from 'modules/common';
+import events from '@app/lib/events';
+import { useCollection } from '@app/db';
+import { makeMeta } from '@app/modules/common';
 import { defaultSettings, defaultState } from './defaults';
 
 // declare module 'lib/events' {

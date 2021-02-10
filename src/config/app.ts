@@ -3,7 +3,7 @@ import logger from 'morgan';
 import express, { Express } from 'express';
 import passport from 'passport';
 
-import { init as InitializeMiddlewares } from 'middlewares';
+import { init as InitializeMiddlewares } from '@app/middlewares';
 import env from './env';
 import configureStrategies from './passport';
 

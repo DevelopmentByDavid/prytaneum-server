@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/indent */
 // import http from 'http';
-import events from 'lib/events';
 import { Socket } from 'socket.io';
 import makeDebug from 'debug';
 import { ObjectId } from 'mongodb';
 import type { /* User */ Question } from 'prytaneum-typings';
 
 // import isModerator from 'utils/isModerator';
+import events from '@app/lib/events';
 import io from '../socket-io';
 // import { init, cookieParser, requireLogin } from '../middlewares';
 

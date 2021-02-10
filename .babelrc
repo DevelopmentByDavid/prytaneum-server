@@ -6,7 +6,10 @@
         [
             "module-resolver",
             {
-                "root": "src",
+                "root": ".",
+                "alias": {
+                    "@app": "./src/"
+                },
                 "extensions": [".js", ".jsx", ".es", ".es6", ".mjs", ".ts"]
             }
         ],

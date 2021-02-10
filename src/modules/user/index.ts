@@ -3,10 +3,10 @@ import { ObjectID, ObjectId } from 'mongodb';
 import createHttpError from 'http-errors';
 import type { RegisterForm, User, ClientSafeUser, Roles } from 'prytaneum-typings';
 
-import jwt from 'lib/jwt';
-import Emails from 'lib/emails';
-import emitter from 'lib/events';
-import { useCollection } from 'db';
+import jwt from '@app/lib/jwt';
+import Emails from '@app/lib/emails';
+import emitter from '@app/lib/events';
+import { useCollection } from '@app/db';
 import errors from './errors';
 
 export const SALT_ROUNDS = 10;

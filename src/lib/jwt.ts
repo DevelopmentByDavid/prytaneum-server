@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-import env from 'config/env';
+import env from '@app/config/env';
 
 // TODO: set issuer using env.origin
 

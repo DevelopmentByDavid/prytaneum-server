@@ -15,7 +15,7 @@ import {
 } from 'prytaneum-typings';
 
 import 'config/env';
-import { SALT_ROUNDS } from 'modules/user';
+import { SALT_ROUNDS } from '@app/modules/user';
 import { useCollection, connect } from './mongo';
 
 const info = makeDebug('prytaneum:init');

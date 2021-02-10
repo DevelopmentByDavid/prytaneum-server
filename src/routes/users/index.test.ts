@@ -6,12 +6,12 @@ import { JsonWebTokenError, TokenExpiredError } from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import { RegisterForm, makeUser, makeRegisterForm } from 'prytaneum-typings';
 
-import * as DB from 'db/mongo';
-import * as Users from 'modules/user';
-import Emails from 'lib/emails';
-import jwt from 'lib/jwt';
-import config from 'config/app';
-import { errorHandler } from 'middlewares';
+import * as DB from '@app/db/mongo';
+import * as Users from '@app/modules/user';
+import Emails from '@app/lib/emails';
+import jwt from '@app/lib/jwt';
+import config from '@app/config/app';
+import { errorHandler } from '@app/middlewares';
 import routes from './index';
 
 const app = express();

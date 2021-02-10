@@ -1,2 +1,2 @@
-import 'config/env';
+import '@app/config/env';
 import './server';

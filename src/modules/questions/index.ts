@@ -2,9 +2,9 @@ import { ObjectId, ObjectID } from 'mongodb';
 import type { QuestionForm, User, Question } from 'prytaneum-typings';
 import createHttpError from 'http-errors';
 
-import { useCollection } from 'db';
-import events from 'lib/events';
-import { makeMeta } from 'modules/common';
+import { useCollection } from '@app/db';
+import events from '@app/lib/events';
+import { makeMeta } from '@app/modules/common';
 // import isModerator from 'utils/isModerator';
 
 // declaration merging

@@ -1,10 +1,10 @@
 import http from 'http';
 import makeDebug from 'debug';
 
-import app from 'app';
-import { connect } from 'db';
-import io from 'socket-io';
-import env from 'config/env';
+import app from '@app/app';
+import { connect } from '@app/db';
+import io from '@app/socket-io';
+import env from '@app/config/env';
 
 const info = makeDebug('prytaneum:server');
 info('Starting server');

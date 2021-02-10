@@ -5,7 +5,7 @@ import { io, Socket } from 'socket.io-client';
 import { Server } from 'socket.io';
 import { ObjectId, ObjectID } from 'mongodb';
 
-import events from 'lib/events';
+import events from '@app/lib/events';
 import ioServer from '../socket-io';
 
 // must import to properly listen

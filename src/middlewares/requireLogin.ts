@@ -4,10 +4,10 @@ import { ObjectId, ObjectID } from 'mongodb';
 import createHttpError from 'http-errors';
 import type { Roles, User } from 'prytaneum-typings';
 
-import isAllowed from 'utils/isAllowed';
-import env from 'config/env';
-import JWT from 'lib/jwt';
-import { useCollection } from 'db';
+import isAllowed from '@app/utils/isAllowed';
+import env from '@app/config/env';
+import JWT from '@app/lib/jwt';
+import { useCollection } from '@app/db';
 
 export type Cookies = Record<string, string | undefined>;
 export function getCookies(req: Request): Cookies {

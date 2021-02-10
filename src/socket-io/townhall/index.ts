@@ -1,7 +1,7 @@
-import events from 'lib/events';
 import { Socket } from 'socket.io';
 import makeDebug from 'debug';
 
+import events from '@app/lib/events';
 import io from '../socket-io';
 
 declare module '../socket-io' {

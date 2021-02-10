@@ -1,8 +1,8 @@
 import express from 'express';
 
-import config from 'config/app';
-import routes from 'routes';
-import { errorHandler, notFound } from 'middlewares';
+import config from '@app/config/app';
+import routes from '@app/routes';
+import { errorHandler, notFound } from '@app/middlewares';
 
 const app = express();
 config(app);
