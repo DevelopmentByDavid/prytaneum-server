@@ -1,0 +1,25 @@
+type Question {
+    _id: ID!
+    meta: TownhallRelationMeta
+    question: String
+    likes: [ID!]!
+    visibility: Boolean
+}
+
+input QuestionForm {
+    question: String!
+    quote: ID
+}
+
+extend type Query {
+    questionsByTownhall(townhallId: ID!): [Question]!
+    myQuestions(userId: ID!): Question
+}
+
+extend type Mutation {
+    createQuestion(question: QuestionForm, townhallId: String!): Question
+}
+
+extend type Subscription {
+    questions(townhallId: ID!): Question!
+}

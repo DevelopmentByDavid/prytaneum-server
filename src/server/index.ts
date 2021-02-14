@@ -1,19 +1,22 @@
 import http from 'http';
 import makeDebug from 'debug';
 
-import app from '@app/app';
+import app, { apollo } from '@app/app';
 import { connect } from '@app/db';
 import io from '@app/socket-io';
 import env from '@app/config/env';
+import { initSubscriptions } from '@app/graphql';
 
 const info = makeDebug('prytaneum:server');
 info('Starting server');
 
 connect()
+    .then(initSubscriptions)
     .then(() => {
         const server = http.createServer(app);
         io.attach(server);
         server.listen(env.PORT);
+        apollo.installSubscriptionHandlers(server);
 
         server.on('error', (error: NodeJS.ErrnoException) => {
             if (error.syscall !== 'listen') {
@@ -40,10 +43,7 @@ connect()
         server.on('listening', () => {
             const addr = server.address();
             if (addr) {
-                const bind =
-                    typeof addr === 'string'
-                        ? `pipe ${addr}`
-                        : `port ${addr.port}`;
+                const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
                 info(`Listening on ${bind}`);
             } else {
                 info('Address is null');

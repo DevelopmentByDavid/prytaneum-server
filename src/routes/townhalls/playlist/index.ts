@@ -10,12 +10,7 @@ import {
     removeQuestionFromList,
     updateQueue,
 } from '@app/modules/playlist';
-import {
-    makeEndpoint,
-    requireLogin,
-    RequireLoginLocals,
-    requireModerator,
-} from '@app/middlewares';
+import { makeEndpoint, requireLogin, RequireLoginLocals, requireModerator } from '@app/middlewares';
 
 import { TownhallParams } from '../types';
 
@@ -27,13 +22,7 @@ const router = Router();
 /**
  * adds a new question to the list in the playlist field on townhalls
  */
-router.post<
-    TownhallParams,
-    void,
-    void,
-    { questionId: string },
-    RequireLoginLocals
->(
+router.post<TownhallParams, void, void, { questionId: string }, RequireLoginLocals>(
     '/:townhallId/playlist',
     requireLogin(),
     requireModerator(),
@@ -47,13 +36,7 @@ router.post<
 /**
  * deletes a particular question from the list in the playlist field
  */
-router.delete<
-    TownhallParams & { questionId: string },
-    void,
-    { questionId: string },
-    void,
-    RequireLoginLocals
->(
+router.delete<TownhallParams & { questionId: string }, void, { questionId: string }, void, RequireLoginLocals>(
     '/:townhallId/playlist/:questionId',
     requireLogin(),
     requireModerator(),
@@ -67,13 +50,7 @@ router.delete<
 /**
  * adds an item to the queue
  */
-router.post<
-    TownhallParams,
-    void,
-    void,
-    { questionId: string },
-    RequireLoginLocals
->(
+router.post<TownhallParams, void, void, { questionId: string }, RequireLoginLocals>(
     '/:townhallId/playlist/queue',
     requireLogin(),
     requireModerator(),
@@ -87,13 +64,7 @@ router.post<
 /**
  * updates the queue order
  */
-router.put<
-    TownhallParams,
-    void,
-    { questions: Question<string>[] },
-    void,
-    RequireLoginLocals
->(
+router.put<TownhallParams, void, { questions: Question<string>[] }, void, RequireLoginLocals>(
     '/:townhallId/playlist/queue',
     requireLogin(),
     requireModerator(),
@@ -107,13 +78,7 @@ router.put<
 /**
  * removes an item from the queue
  */
-router.delete<
-    TownhallParams,
-    void,
-    { questionId: string },
-    void,
-    RequireLoginLocals
->(
+router.delete<TownhallParams, void, { questionId: string }, void, RequireLoginLocals>(
     '/:townhallId/playlist/queue',
     requireLogin(),
     requireModerator(),

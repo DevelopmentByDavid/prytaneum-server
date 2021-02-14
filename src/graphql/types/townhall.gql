@@ -1,0 +1,86 @@
+type TownhallForm {
+    title: String
+    date: Date
+    description: String
+    private: Boolean
+    topic: String
+}
+
+input PostTownhall {
+    title: String!
+    date: Date!
+    description: String!
+    private: Boolean!
+    topic: String!
+}
+
+type TownhallMeta implements Meta {
+    createdAt: String!
+    createdBy: MetaUser!
+    updatedAt: String!
+    updatedBy: String!
+}
+
+type TownhallChatSetting {
+    enabled: Boolean!
+    automated: Boolean!
+}
+
+type TownhallQuestionSettings {
+    visible: Boolean!
+    automated: Boolean!
+}
+
+type TownhallVideoSettings {
+    url: String!
+}
+
+type TownhallModeratorSettings {
+    "List of moderators by email"
+    list: [String!]!
+}
+
+type TownhallSettings {
+    chat: TownhallChatSetting
+    questions: TownhallQuestionSettings
+    video: TownhallVideoSettings
+    moderators: TownhallModeratorSettings
+}
+
+type TownhallAttendees {
+    "current number of users attending the townhall"
+    current: Int
+    "peak concurrent users"
+    max: Int
+}
+
+type TownhallPlaylist {
+    position: Int
+    queue: [String!]!
+    list: [String!]!
+}
+
+"State of the townhall"
+type TownhallState {
+    active: Boolean
+    start: String
+    end: String
+    attendees: TownhallAttendees
+}
+
+"The main townhall object"
+type Townhall {
+    _id: ID!
+    meta: TownhallMeta
+    form: TownhallForm
+    settings: TownhallSettings
+}
+
+extend type Mutation {
+    createTownhall(townhallForm: PostTownhall): Townhall
+}
+
+extend type Query {
+    townhallById(id: ID!): Townhall
+    myTownhalls: [Townhall]!
+}

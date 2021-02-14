@@ -1,0 +1,31 @@
+type UserEmail {
+    address: String
+    verified: Boolean
+}
+
+type UserTownhallSettings {
+    anonymous: Boolean
+}
+
+type UserNotificationSettings {
+    enabled: Boolean
+    types: [String]
+}
+
+type UserSettings {
+    townhall: UserTownhallSettings
+    notifications: UserNotificationSettings
+}
+
+type User {
+    _id: ID!
+    email: UserEmail!
+    roles: [String]!
+    name: Name
+    settings: UserSettings
+}
+
+extend type Query {
+    me: User
+    userById(id: ID!): User
+}

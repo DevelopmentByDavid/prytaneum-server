@@ -7,10 +7,7 @@ const validateObjectId: Joi.CustomValidator<string> = (value) => {
     return value;
 };
 
-export const makeObjectIdValidationObject = (
-    fieldName: string,
-    otherValidators?: Record<string, string>
-) => ({
+export const makeObjectIdValidationObject = (fieldName: string, otherValidators?: Record<string, string>) => ({
     [fieldName]: Joi.string()
         .required()
         .custom(validateObjectId)

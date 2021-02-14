@@ -1,0 +1,10 @@
+type ChatMessage {
+    _id: ID!
+    meta: TownhallRelationMeta
+    visibility: String
+    message: String
+}
+
+extend type Query {
+    chatMessagesByTownhall(townhallId: ID!): [ChatMessage]!
+}

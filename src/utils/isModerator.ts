@@ -15,20 +15,13 @@ import { useCollection } from '@app/db';
  * )
  * ```
  */
-export default async function isModerator(
-    townhallId: string,
-    userEmail: string,
-    userId: ObjectId
-) {
+export default async function isModerator(townhallId: string, userEmail: string, userId: ObjectId) {
     const found = await useCollection('Townhalls', (Townhalls) =>
         Townhalls.findOne({
             _id: new ObjectID(townhallId),
             // if the user is the moderator or organizer
             // organizer is the one who made the townhall
-            $or: [
-                { 'settings.moderators.list.email': userEmail },
-                { 'meta.createdBy._id': userId },
-            ],
+            $or: [{ 'settings.moderators.list.email': userEmail }, { 'meta.createdBy._id': userId }],
         })
     );
     return Boolean(found);

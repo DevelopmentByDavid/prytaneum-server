@@ -1,0 +1,34 @@
+scalar Date
+
+type Subscription {
+    _empty: String
+}
+
+type Mutation {
+    _empty: String
+}
+
+type Name {
+    first: String!
+    last: String!
+}
+
+type MetaUser {
+    _id: ID!
+    name: Name!
+}
+
+interface Meta {
+    createdAt: String!
+    createdBy: MetaUser!
+    updatedAt: String!
+    updatedBy: String!
+}
+
+type TownhallRelationMeta implements Meta {
+    createdAt: String!
+    createdBy: MetaUser!
+    updatedAt: String!
+    updatedBy: String!
+    townhallId: ID!
+}
