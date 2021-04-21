@@ -2,7 +2,7 @@
 import { Router } from 'express';
 import Joi from 'joi';
 import { ObjectId } from 'mongodb';
-import type { TownhallForm, Townhall, TownhallSettings, BreakoutForm, RegisterForm } from 'prytaneum-typings';
+import type { TownhallForm, Townhall, TownhallSettings, RegisterForm } from 'prytaneum-typings';
 
 import {
     createTownhall,
@@ -16,13 +16,13 @@ import {
 } from 'modules/townhall';
 // import { startBreakout, endBreakout } from 'modules/chat';
 import { townhallValidationObject } from 'modules/townhall/validators';
-import { makeJoiMiddleware, makeEndpoint, requireLogin, RequireLoginLocals, requireModerator } from 'middlewares';
+import { makeJoiMiddleware, makeEndpoint, requireLogin, RequireLoginLocals} from 'middlewares';
 import { makeObjectIdValidationObject } from 'utils/validators';
 import { registerForTownhall } from 'modules/user';
 
 import { TownhallParams } from './types';
 import questionRoutes from './questions';
-import breakoutRoomRoutes from './breakout-room';
+// import breakoutRoomRoutes from './breakout-room';
 import ratingRoutes from './rating';
 import playlistRoutes from './playlist';
 
@@ -156,37 +156,37 @@ router.post<TownhallParams, void, void, void, RequireLoginLocals>(
     })
 );
 
-/**
- * start breakout rooms in townhall
- */
-router.post<TownhallParams, void, BreakoutForm, void, RequireLoginLocals>(
-    '/:townhallId/breakout-start',
-    requireModerator(),
-    makeJoiMiddleware({
-        body: Joi.object({
-            numRooms: Joi.number().required(),
-        }),
-    }),
-    makeEndpoint((req, res) => {
-        // const { numRooms } = req.body;
-        // const { townhallId } = req.params;
-        // startBreakout(townhallId, numRooms);
-        res.sendStatus(200);
-    })
-);
+// /**
+//  * start breakout rooms in townhall
+//  */
+// router.post<TownhallParams, void, BreakoutForm, void, RequireLoginLocals>(
+//     '/:townhallId/breakout-start',
+//     requireModerator(),
+//     makeJoiMiddleware({
+//         body: Joi.object({
+//             numRooms: Joi.number().required(),
+//         }),
+//     }),
+//     makeEndpoint((req, res) => {
+//         // const { numRooms } = req.body;
+//         // const { townhallId } = req.params;
+//         // startBreakout(townhallId, numRooms);
+//         res.sendStatus(200);
+//     })
+// );
 
-/**
- * ends breakout room in townhall
- */
-router.post<TownhallParams, void, void, void, RequireLoginLocals>(
-    '/:townhallId/breakout-end',
-    requireModerator(),
-    makeEndpoint((req, res) => {
-        // const { townhallId } = req.params;
-        // endBreakout(townhallId);
-        res.sendStatus(200);
-    })
-);
+// /**
+//  * ends breakout room in townhall
+//  */
+// router.post<TownhallParams, void, void, void, RequireLoginLocals>(
+//     '/:townhallId/breakout-end',
+//     requireModerator(),
+//     makeEndpoint((req, res) => {
+//         // const { townhallId } = req.params;
+//         // endBreakout(townhallId);
+//         res.sendStatus(200);
+//     })
+// );
 
 /**
  * pre-register a user, this is typically done via an external service
@@ -218,7 +218,7 @@ router.post<
 );
 
 router.use(questionRoutes);
-router.use(breakoutRoomRoutes);
+// router.use(breakoutRoomRoutes);
 router.use(ratingRoutes);
 router.use(playlistRoutes);
 
